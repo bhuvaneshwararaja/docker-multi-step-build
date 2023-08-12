@@ -1,0 +1,10 @@
+sudo:required
+
+services:
+  - docker
+
+before_start:
+  - docker build -t bhuvaneshwar/docker-multi -f Dockerfile.dev .
+
+script:
+  - docker run bhuvaneshwar/docker-multi npm run test -- --coverage
